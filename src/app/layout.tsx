@@ -1,35 +1,59 @@
+// F:\code\website1\book-pile\src\app\layout.tsx
+
+import './globals.css';
 import { ReactNode } from 'react';
 
-interface LayoutProps {
-    children: ReactNode;
-}
-
-export default function RootLayout({ children }: LayoutProps) {
+export default function RootLayout({ children }: { children: ReactNode }) {
     return (
         <html lang="en">
-        <body className="container mx-auto">
-        <header>
-            <nav className="flex justify-between items-center p-4 bg-gray-100">
-                <div className="logo text-2xl">BOOK PILE</div>
-                <input
-                    type="search"
-                    placeholder="Search"
-                    className="border rounded px-4 py-2"
-                />
-                <div>
-                    <button className="px-4 py-2">Register</button>
-                    <button className="px-4 py-2">Login</button>
-                    <button className="px-4 py-2">Cart</button>
-                </div>
-            </nav>
-        </header>
-        <main>{children}</main>
-        <footer className="bg-gray-100 text-center py-4">
-            <div className="flex justify-around">
-                <p>Company</p>
-                <p>Follow</p>
+        <head>
+            <title>Book Pile</title>
+        </head>
+        <body>
+        {/* Header Section */}
+        <header className="header">
+            <div className="logo">
+                <img src="/images/Logo.jpg" alt="Book Pile Logo" />
             </div>
-            <p>&copy; 2024 All Rights Reserved</p>
+            <div className="search-bar">
+                <input type="text" placeholder="Search" />
+            </div>
+            <div className="nav-links">
+                <button>Register</button>
+                <button>Login</button>
+            </div>
+        </header>
+
+        {/* Navigation Menu */}
+        <nav className="menu">
+            <ul>
+                <li><a href="#">Category</a></li>
+                <li><a href="#">Fiction</a></li>
+                <li><a href="#">eBooks</a></li>
+                <li><a href="#">Kids</a></li>
+                <li><a href="#">Deal</a></li>
+            </ul>
+        </nav>
+
+        <main>{children}</main>
+
+        {/* Footer Section */}
+        <footer className="footer">
+            <div className="company-info">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">Service</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#">Accessibility Statement</a></li>
+                </ul>
+            </div>
+            <div className="social-links">
+                <h4>Follow</h4>
+                <ul>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+            </div>
         </footer>
         </body>
         </html>
